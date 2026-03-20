@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css2?family=Lalezar&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@font-face {
+  font-family: 'Far.Nazanin';
+  src:        url('https://www.fontfarsi.ir/Content/Fonts/EOT/Far_Nazanin.eot');
+  src: local('☺'),
+  url('https://www.fontfarsi.ir/Content/Fonts/WOFF/Far_Nazanin.woff') format('woff'),
+  url('https://www.fontfarsi.ir/Content/Fonts/TTF/Far_Nazanin.ttf') format('truetype'),
+  url('https://www.fontfarsi.ir/Content/Fonts/SVG/Far_Nazanin.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  }
+
+  .persianNumber {
+  font-family: 'Far.Nazanin',Tahoma, Sans-Serif;
+  font-size: 24px;
+  }
+
+
+.font_lalezar{
+  font-family: Lalezar;
+}
+
+
+/* Header */
+main {
+  margin: 0;
+}
+
+nav {
+  /* height: 4em; */
+  position: sticky;
+  top: 0;
+  text-align: center;
+  box-shadow: 0 4px 9px #4242421a;
+  transition: transform 250ms ease-in-out;
+  border-bottom: 1px solid #ddd;
+  z-index: 10;
+  background-color: white;
+}
+
+nav.nav-bar--hidden {
+  transform: translateY(-100%);
+}
+
+/* header */
+input{
+  font-family: inherit;
+}
+
+
+/* Slider */
+.swiper {
+  width: 100%;
+  height: 400px
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+/* Embla Carousel */
+.embla {
+  max-width: 48rem;
+  margin: auto;
+  --slide-height: 19rem;
+  --slide-spacing: 0.8rem;
+  --slide-size: 20%;
+}
+.embla__viewport {
+  overflow: hidden;
+}
+.embla__container {
+  backface-visibility: hidden;
+  display: flex;
+  touch-action: pan-y;
+  margin-left: calc(var(--slide-spacing) * -1);
+}
+.embla__slide {
+  flex: 0 0 var(--slide-size);
+  min-width: 0;
+  padding-left: var(--slide-spacing);
+}
+.embla__slide__number {
+  box-shadow: inset 0 0 0 0.2rem var(--detail-medium-contrast);
+  border-radius: 1.8rem;
+  font-size: 4rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--slide-height);
+}
+.embla__controls {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  justify-content: space-between;
+  gap: 1.2rem;
+  margin-top: 1.8rem;
+}
+.embla__buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.6rem;
+  align-items: center;
+}
+.embla__button {
+  -webkit-tap-highlight-color: rgba(var(--text-high-contrast-rgb-value), 0.5);
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  touch-action: manipulation;
+  display: inline-flex;
+  text-decoration: none;
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  box-shadow: inset 0 0 0 0.2rem var(--detail-medium-contrast);
+  width: 3.6rem;
+  height: 3.6rem;
+  z-index: 1;
+  border-radius: 50%;
+  color: var(--text-body);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.embla__button:disabled {
+  color: var(--detail-high-contrast);
+}
+.embla__button__svg {
+  width: 35%;
+  height: 35%;
+}
+
+.embla-background{
+  background-color: #fe7489;
+}
+.slick-slide{
+  margin-right: 5px !important;
+  box-sizing: border-box;
+}
+
+/* arrow button slider */
+.slick-arrow{
+  position: absolute !important;
+  top: 25% !important;
+}
+
+/* brands slider */
+.slick-track{
+  display: flex !important;
+}
+
+.slick-slide{
+  margin: 0 10px;
+  min-width: 200px !important;
+}
+
+
+
+.triangle {
+  border-width: 25px;
+  border-style: solid;
+  border-color: #d72685 #d72685 transparent transparent;
+  position: absolute;
+  top:0;
+  right:0;
+  width:0;
+  height:0;
+}
