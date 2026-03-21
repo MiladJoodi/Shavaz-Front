@@ -5,10 +5,11 @@ export function generateStaticParams() {
   return products.map((p) => ({ slug: p.slug }));
 }
 
-export default function ProductDetailPage({ params }: { params: { slug: string } }) {
+export default async function ProductDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
   return (
     <main>
-      <ProductDetail slug={params.slug} />
+      <ProductDetail slug={slug} />
     </main>
   );
 }

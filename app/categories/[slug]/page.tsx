@@ -5,10 +5,11 @@ export function generateStaticParams() {
   return categories.map((cat) => ({ slug: cat.slug }));
 }
 
-export default function CategoryPage({ params }: { params: { slug: string } }) {
+export default async function CategoryPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
   return (
     <main>
-      <CategoryContent slug={params.slug} />
+      <CategoryContent slug={slug} />
     </main>
   );
 }

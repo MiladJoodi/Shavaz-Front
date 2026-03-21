@@ -9,16 +9,13 @@ import persianNumber from "@/utils/persianNumber";
 import { shimmer, toBase64 } from "@/utils/shimmer";
 import type { Metadata } from "next";
 
-interface Props {
-  params: { slug: string };
-}
-
 export async function generateStaticParams() {
   return blogPosts.map((post) => ({ slug: post.slug }));
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const post = getBlogBySlug(params.slug);
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const post = getBlogBySlug(slug);
   if (!post) return { title: "مقاله یافت نشد" };
   return {
     title: post.title,
@@ -26,8 +23,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default function BlogPostPage({ params }: Props) {
-  const post = getBlogBySlug(params.slug);
+export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const post = getBlogBySlug(slug);
 
   if (!post) {
     notFound();
