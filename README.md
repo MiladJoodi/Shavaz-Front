@@ -1,80 +1,118 @@
-# Shavaz Shopping App
+# Shavaz Front
 
-<h4>Shavaz 🚀</h4>  
+A **Persian (RTL)** e-commerce storefront for beauty and personal care products. Built with **Next.js** (App Router) and **Tailwind CSS**, with client-side state for the shopping cart and mock authentication for demos.
 
-[Demo](https://shavaz.vercel.app/).\
-Thank you sincerely. 🙏
+**Live demo:** [shavaz.vercel.app](https://shavaz.vercel.app/)
 
-  <a href="https://www.typescriptlang.org/">
-    <img
-      src="https://cdn.iconscout.com/icon/free/png-256/free-typescript-3521774-2945272.png?f=webp"
-      alt="أNext"
-      width="40"
-      height="40"
-    />
-  </a>
-  
-<a href="https://nextjs.org/" target="_blank" rel="noreferrer">
-    <img
-      src="https://s30.picofile.com/file/8473042000/nextjs.png"
-      alt="أNext"
-      width="80"
-      height="27"
-    />
-  </a>
-  <a href="https://tailwindcss.com/" target="_blank" rel="noreferrer">
-    <img
-      src="https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg"
-      width="40"
-      height="40"
-    />
-  </a>
-  </a>
-    
- 
-  \
-  <br />
+---
 
+## Features
 
-![](https://s8.uupload.ir/files/shavaz_26ta.png)
+- **Home** — hero slider, featured sections, categories, brands, and best sellers
+- **Catalog** — product listing, category pages, and product detail (`[slug]`)
+- **Cart & checkout** — cart with persistence; checkout flow (UI)
+- **Blog** — posts and single-article pages
+- **Auth (demo)** — login and register with simulated API (no real backend)
+- **Profile** — user profile when “logged in”
+- **Static pages** — about, contact, 404
+- **RTL layout** — `dir="rtl"`, `lang="fa"`, [Vazirmatn](https://fonts.google.com/specimen/Vazirmatn) font
 
+---
 
+## Tech Stack
 
-<h3 align="left">Connect with me:</h3>
+| Area            | Choice |
+|-----------------|--------|
+| Framework       | [Next.js 15](https://nextjs.org/) (App Router) |
+| UI              | [React 19](https://react.dev/) |
+| Styling         | [Tailwind CSS 3](https://tailwindcss.com/) |
+| Forms & validation | [React Hook Form](https://react-hook-form.com/), [Zod](https://zod.dev/) |
+| State           | [Zustand](https://zustand-demo.pmnd.rs/) (with `persist` for cart & auth) |
+| Carousels       | [Swiper](https://swiperjs.com/), [Embla](https://www.embla-carousel.com/), [react-slick](https://react-slick.neostack.com/) |
+| Icons           | [Lucide React](https://lucide.dev/) |
+| Language        | TypeScript |
 
-<p align="left">
-  <a href="mailto:miladjoodi1@gmail.com" target="blank"
-    ><img
-      align="center"
-      src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Gmail_icon_%282020%29.svg/1280px-Gmail_icon_%282020%29.svg.png"
-      alt="miladjoodi"
-      height="27"
-      width="34"
-  /></a>
-  <a href="https://twitter.com/milad_joodi" target="blank"
-    ></a>
-  <a
-    href="https://www.linkedin.com/in/miladjoodi/"
-    target="blank"
-    ><img
-      align="center"
-      src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg"
-      alt="https://www.linkedin.com/in/miladjoodi/"
-      height="30"
-      width="40"
-  /></a>    
-  <a
-    href="https://www.facebook.com/miladjood/"
-    target="blank"
-    ><img
-      align="center"
-      src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/facebook.svg"
-      alt="Milad's Linkedin"
-      height="30"
-      width="30"
-  /></a>
-</p>
+The app is configured for **static export** (`output: "export"` in `next.config.mjs`), so it deploys as static HTML/JS/CSS (e.g. Vercel, Netlify, any static host).
 
- 
+---
 
- 
+## Project Structure (overview)
+
+```
+app/                 # Routes (App Router): home, products, cart, blog, auth, etc.
+components/          # UI: header, footer, sliders, product cards, shared widgets
+data/                # Local mock data (products, categories, blog, …)
+hooks/               # e.g. scroll listeners
+lib/                 # helpers (e.g. class names, price formatting)
+stores/              # Zustand: cart + auth
+types/               # Shared TypeScript types
+utils/               # Utilities (e.g. Persian numbers, shimmer)
+```
+
+---
+
+## Prerequisites
+
+- **Node.js** 18+ (LTS recommended)
+- **npm**, **pnpm**, or **yarn**
+
+---
+
+## Getting Started
+
+### 1. Install dependencies
+
+```bash
+npm install
+```
+
+### 2. Run the development server
+
+```bash
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+### 3. Production build (static export)
+
+```bash
+npm run build
+```
+
+Output is written to the `out/` directory. For a quick local check of the static build:
+
+```bash
+npx serve out
+```
+
+---
+
+## Scripts
+
+| Command        | Description |
+|----------------|-------------|
+| `npm run dev`  | Start Next.js in development mode |
+| `npm run build`| Create optimized production build (static export) |
+| `npm run start`| Run production server (not used for static `out/`; use a static file server for `out`) |
+| `npm run lint` | Run ESLint via Next.js |
+
+---
+
+## Configuration Notes
+
+- **Images:** `images.unoptimized: true` in `next.config.mjs` is typical for static export; images are not processed by the Next.js image optimization server.
+- **Data:** Product and content data live under `data/` for the demo. Replacing this with a real API would be the next integration step.
+- **Auth:** Login/register are **mocked** in `stores/auth-store.ts` (no real credentials or server).
+
+---
+
+## License
+
+This project is **private** (`"private": true` in `package.json`). Use and distribution follow your team or organization’s policy.
+
+---
+
+## Author
+
+Project links and contact were listed in earlier versions of this repo; see git history or project maintainers for details.
