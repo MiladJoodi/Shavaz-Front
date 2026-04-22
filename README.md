@@ -2,7 +2,7 @@
 
 A **Persian (RTL)** e-commerce storefront for beauty and personal care products. Built with **Next.js** (App Router) and **Tailwind CSS**, with client-side state for the shopping cart and mock authentication for demos.
 
-**Live demo:** [shavaz.vercel.app](https://shavaz.vercel.app/)
+**Live demo:** [Shavaz.netlify.app](https://Shavaz.netlify.app)
 
 ---
 
